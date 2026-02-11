@@ -3,7 +3,8 @@
 
 int	main()
 {
-  ClapTrap a;
+  ClapTrap a = ClapTrap("a");
+
   
 	return (0);
 }

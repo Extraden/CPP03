@@ -1,7 +1,7 @@
 #include <iostream>
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap() : _hp(10), _ep(10), _damage(0)
+ClapTrap::ClapTrap(const std::string& name) : _name(name), _hp(10), _ep(10), _damage(0)
 {
   std::cout << "ClapTrap is created!\n";
 }
