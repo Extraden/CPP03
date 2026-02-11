@@ -4,7 +4,7 @@
 int	main()
 {
   ClapTrap a = ClapTrap("a");
-
   
+  a.attack("enemy");
 	return (0);
 }

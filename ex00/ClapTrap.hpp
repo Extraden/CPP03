@@ -10,13 +10,14 @@ class ClapTrap
 		ClapTrap(const ClapTrap& other);
 		ClapTrap& operator=(const ClapTrap& other);
 		~ClapTrap();
+
+    void  attack(const std::string& target);
+
 	private:
     std::string _name;
     std::size_t _hp;
     std::size_t _ep;
     std::size_t _damage;
-
-    void  attack(const std::string& target);
 };
 
 #endif
