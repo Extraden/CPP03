@@ -1,15 +1,13 @@
 #include <iostream>
+#include <limits>
 #include "ClapTrap.hpp"
 
 ClapTrap::ClapTrap(const std::string& name) : _name(name), _hp(10), _ep(10), _damage(0)
 {
-  std::cout << "ClapTrap is created!\n";
+  std::cout << "ClapTrap " << _name << " is created!\n";
 }
 
-ClapTrap::ClapTrap(const ClapTrap& other)
-{
-  *this = other;
-}
+ClapTrap::ClapTrap(const ClapTrap& other) : _name(other._name), _hp(other._hp), _ep(other._ep), _damage(other._damage)  {}
 
 ClapTrap& ClapTrap::operator=(const ClapTrap& other)
 {
@@ -25,28 +23,64 @@ ClapTrap& ClapTrap::operator=(const ClapTrap& other)
 
 ClapTrap::~ClapTrap()
 {
-  std::cout << "ClapTrap is destroyed!\n";
+  std::cout << "ClapTrap " << _name << " is destroyed!\n";
 }
 
 void  ClapTrap::attack(const std::string& target)
 {
-  if (this->_ep > 0)
+  if (this->_hp == 0)
   {
-    this->_ep--;
-    std::cout << "ClapTrap " << this->_name << " attacks " << target << ", causing " << this->_damage << " points of damage!\n";
+    std::cout << "ClapTrap " << this->_name << " is dead and can't attack!\n";
+    return;
   }
-  else
-    std::cout << "ClapTrap " << this->_name << " doesn't have enough energy to attack " << target << "!\n";
+  if (this->_ep == 0)
+  {
+    std::cout << "ClapTrap " << this->_name
+      << " doesn't have enough energy to attack " << target << "!\n";
+    return;
+  }
+  this->_ep--;
+  std::cout << "ClapTrap " << this->_name << " attacks " << target << ", causing "
+    << this->_damage << " points of damage!\n";
 }
 
 void ClapTrap::takeDamage(unsigned int amount)
 {
-  if (this->_hp > 0)
-    this->_hp--;
-  std::cout << "ClapTrap " << this->_name << " takes " << amount << " of damage!\n";
+  if (this->_hp == 0)
+  {
+    std::cout << "ClapTrap " << this->_name << " is already dead!\n";
+    return;
+  }
+  const std::size_t dmg = static_cast<std::size_t>(amount);
+  std::cout << "ClapTrap " << this->_name << " takes " << dmg << " damage!\n";
+  if (this->_hp >= dmg)
+    this->_hp -= dmg;
+  else
+   this->_hp = 0;
+  if (this->_hp == 0)
+    std::cout << "ClapTrap " << this->_name << " is dead!\n";
+  else
+   std::cout << "ClapTrap " << this->_name << " has " << this->_hp << " hp left\n";
 }
 
 void ClapTrap::beRepaired(unsigned int amount)
 {
-  std::cout << "ClapTrap " << this->_name << " is repaired by " << amount << " hit points\n";
+  static const std::size_t max = std::numeric_limits<std::size_t>::max();
+  if (this->_hp == 0)
+  {
+    std::cout << "ClapTrap " << this->_name << " is dead and can't be repaired!\n";
+    return;
+  }
+  if (this->_ep == 0)
+  {
+    std::cout << "ClapTrap " << this->_name << " doesn't have energy and can't be repaired!\n";
+    return;
+  }
+  const std::size_t delta = static_cast<std::size_t>(amount);
+  if (this->_hp > max - delta)
+    this->_hp = max;
+  else
+    this->_hp += delta;
+  this->_ep--;
+  std::cout << "ClapTrap " << this->_name << " is repaired by " << delta << " hit points\n";
 }

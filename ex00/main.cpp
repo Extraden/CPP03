@@ -3,7 +3,7 @@
 
 int	main()
 {
-  ClapTrap a = ClapTrap("a");
+  ClapTrap a("a");
   
   a.attack("enemy");
   a.beRepaired(16);
