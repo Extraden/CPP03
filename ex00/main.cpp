@@ -1,7 +1,9 @@
 #include <iostream>
+#include "ClapTrap.hpp"
 
 int	main()
 {
-	std::cout << "Hello\n";
+  ClapTrap a;
+  
 	return (0);
 }
