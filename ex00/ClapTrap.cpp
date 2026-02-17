@@ -20,8 +20,8 @@ ClapTrap& ClapTrap::operator=(const ClapTrap& other)
     this->_hp = other._hp;
     this->_ep = other._ep;
     this->_damage = other._damage;
+    std::cout << "ClapTrap assignment operator is called!\n";
   }
-  std::cout << "ClapTrap assignment operator is called!\n";
   return (*this);
 }
 
