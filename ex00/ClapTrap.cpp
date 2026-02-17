@@ -7,7 +7,10 @@ ClapTrap::ClapTrap(const std::string& name) : _name(name), _hp(10), _ep(10), _da
   std::cout << "ClapTrap " << _name << " is created!\n";
 }
 
-ClapTrap::ClapTrap(const ClapTrap& other) : _name(other._name), _hp(other._hp), _ep(other._ep), _damage(other._damage)  {}
+ClapTrap::ClapTrap(const ClapTrap& other) : _name(other._name), _hp(other._hp), _ep(other._ep), _damage(other._damage)
+{
+  std::cout << "ClapTrap copy constructor is called!\n";
+}
 
 ClapTrap& ClapTrap::operator=(const ClapTrap& other)
 {
@@ -18,6 +21,7 @@ ClapTrap& ClapTrap::operator=(const ClapTrap& other)
     this->_ep = other._ep;
     this->_damage = other._damage;
   }
+  std::cout << "ClapTrap assignment operator is called!\n";
   return (*this);
 }
 
