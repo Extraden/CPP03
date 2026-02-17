@@ -14,13 +14,13 @@ ClapTrap::ClapTrap(const ClapTrap& other) : _name(other._name), _hp(other._hp), 
 
 ClapTrap& ClapTrap::operator=(const ClapTrap& other)
 {
+    std::cout << "ClapTrap assignment operator is called!\n";
   if (this != &other)
   {
     this->_name = other._name;
     this->_hp = other._hp;
     this->_ep = other._ep;
     this->_damage = other._damage;
-    std::cout << "ClapTrap assignment operator is called!\n";
   }
   return (*this);
 }
