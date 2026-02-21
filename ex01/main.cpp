@@ -1,18 +1,18 @@
-#include <iostream>
 #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
 
 int	main()
 
 {
-  ScavTrap a;
+  ScavTrap a("a");
 
   a.attack("enemy");
   a.beRepaired(15);
   a.takeDamage(4);
   a.takeDamage(20);
+  a.guardGate();
 
-  ClapTrap(b);
+  ClapTrap b("b");
 
   b.attack("somebody");
   b.takeDamage(200);
