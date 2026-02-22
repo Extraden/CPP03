@@ -4,8 +4,8 @@
 FragTrap::FragTrap() : ClapTrap("Default") 
 {
   _hp = 100;
-  _ep = 50;
-  _damage = 20;
+  _ep = 100;
+  _damage = 30;
 	std::cout << "A FragTrap " << _name << " is created!\n";
 }
 
@@ -31,21 +31,7 @@ FragTrap::~FragTrap()
   std::cout << "FragTrap " << _name << " is destroyed!\n";
 }
 
-void  FragTrap::attack(const std::string& target)
+void FragTrap::highFiveGuys(void)
 {
-  if (this->_hp == 0)
-  {
-    std::cout << "FragTrap " << this->_name << " is dead and can't attack!\n";
-    return;
-  }
-  if (this->_ep == 0)
-  {
-    std::cout << "FragTrap " << this->_name
-      << " doesn't have enough energy to attack " << target << "!\n";
-    return;
-  }
-  this->_ep--;
-  std::cout << "FragTrap " << this->_name << " attacks " << target << ", causing "
-    << this->_damage << " points of damage!\n";
+  std::cout << "FragTrap " << _name << " gives high five!\n";
 }
-
