@@ -31,7 +31,7 @@ FragTrap::~FragTrap()
   std::cout << "FragTrap " << _name << " is destroyed!\n";
 }
 
-void FragTrap::highFiveGuys(void)
+void FragTrap::highFivesGuys(void)
 {
   std::cout << "FragTrap " << _name << " gives high five!\n";
 }

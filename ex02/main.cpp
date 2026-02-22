@@ -9,6 +9,6 @@ int	main()
   a.beRepaired(15);
   a.takeDamage(4);
   a.takeDamage(20);
-  a.highFiveGuys();
+  a.highFivesGuys();
 	return (0);
 }
