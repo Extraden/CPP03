@@ -6,7 +6,7 @@ ScavTrap::ScavTrap() : ClapTrap("Default")
   _hp = 100;
   _ep = 50;
   _damage = 20;
-	std::cout << "A ScavTrap " << _name << " is created!\n";
+	std::cout << "ScavTrap " << _name << " is created!\n";
 }
 
 ScavTrap::ScavTrap(const std::string& name) : ClapTrap(name)
@@ -14,7 +14,7 @@ ScavTrap::ScavTrap(const std::string& name) : ClapTrap(name)
   _hp = 100;
   _ep = 50;
   _damage = 20;
-	std::cout << "A ScavTrap " << _name << " is created!\n";
+	std::cout << "ScavTrap " << _name << " is created!\n";
 }
 
 ScavTrap::ScavTrap(const ScavTrap& other) : ClapTrap(other) {}
